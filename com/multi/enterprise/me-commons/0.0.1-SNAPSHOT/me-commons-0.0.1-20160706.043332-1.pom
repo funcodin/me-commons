@@ -21,8 +21,8 @@
 	</distributionManagement>
 	<repositories>
     <repository>
-        <id>me-types-mvn-repo</id>
-        <url>https://raw.github.com/funcodin/me-types/mvn-repo/</url>
+        <id>me-commons-mvn-repo</id>
+        <url>https://raw.github.com/funcodin/me-commons/mvn-repo/</url>
         <snapshots>
             <enabled>true</enabled>
             <updatePolicy>always</updatePolicy>

@@ -6,7 +6,6 @@ import javax.xml.transform.Source;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.ImportResource;
 import org.springframework.http.converter.ByteArrayHttpMessageConverter;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.ResourceHttpMessageConverter;
@@ -26,7 +25,7 @@ import com.multi.enterprise.types.jaxb.Jaxb2MessageConverter;
 
 @Configuration
 @EnableWebMvc
-@ImportResource("classpath*:META-INF/spring-config/me-commons-controllers.xml")
+// @ImportResource("classpath*:META-INF/spring-config/me-commons-controllers.xml")
 public class BaseWebMvcConfig extends WebMvcConfigurerAdapter {
 
 	@Autowired(required = false)

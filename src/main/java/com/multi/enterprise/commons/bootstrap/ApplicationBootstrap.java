@@ -28,7 +28,7 @@ public class ApplicationBootstrap implements ApplicationListener<ContextRefreshe
 	@Autowired(required = false)
 	RootApplicationContextBootstrapExecutor[] rootBootstrapExecutors;
 
-	@Autowired(required = true)
+	@Autowired(required = false)
 	ServletApplicationContextBootstrapExecutor[] servletBootstrapExecutors;
 
 	/*

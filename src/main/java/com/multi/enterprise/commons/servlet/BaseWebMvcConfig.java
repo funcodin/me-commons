@@ -20,9 +20,9 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.multi.enterprise.commons.jackson.ObjectMapperMixinInitializer;
-import com.multi.enterprise.commons.jackson.ObjectMapperUtils;
-import com.multi.enterprise.commons.jaxb.Jaxb2MessageConverter;
+import com.multi.enterprise.types.jackson.ObjectMapperMixinInitializer;
+import com.multi.enterprise.types.jackson.ObjectMapperUtils;
+import com.multi.enterprise.types.jaxb.Jaxb2MessageConverter;
 
 @Configuration
 @EnableWebMvc

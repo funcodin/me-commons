@@ -15,7 +15,6 @@ import org.springframework.http.converter.support.AllEncompassingFormHttpMessage
 import org.springframework.http.converter.xml.Jaxb2RootElementHttpMessageConverter;
 import org.springframework.http.converter.xml.SourceHttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -31,10 +30,10 @@ public class BaseWebMvcConfig extends WebMvcConfigurerAdapter {
 	@Autowired(required = false)
 	protected ObjectMapperMixinInitializer mixinInitializer;
 
-	@Override
-	public void addResourceHandlers(final ResourceHandlerRegistry registry) {
-		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
-	}
+	// @Override
+	// public void addResourceHandlers(final ResourceHandlerRegistry registry) {
+	// registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
+	// }
 
 	public MappingJackson2HttpMessageConverter jsonMessageConverter() {
 		return new MappingJackson2HttpMessageConverter(this.jacksonObjectMapper());

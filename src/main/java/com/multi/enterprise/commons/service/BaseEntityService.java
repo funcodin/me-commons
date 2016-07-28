@@ -8,7 +8,7 @@ import java.util.Objects;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.multi.enterprise.commons.dao.DocumentAccess;
+import com.multi.enterprise.commons.dao.EntityAccess;
 import com.multi.enterprise.types.Persistable;
 import com.multi.enterprise.types.exception.EntityNotFoundException;
 import com.multi.enterprise.types.exception.ServiceException;
@@ -20,7 +20,7 @@ import com.multi.enterprise.types.exception.ServiceException;
 public abstract class BaseEntityService<T extends Persistable> implements EntityService<T> {
 
 	@Autowired
-	protected DocumentAccess<T> documentAccess;
+	protected EntityAccess<T> entityAccess;
 
 	/*
 	 * (non-Javadoc)
@@ -35,7 +35,7 @@ public abstract class BaseEntityService<T extends Persistable> implements Entity
 		entity.setCreatedDate(date);
 		entity.setModifiedDate(date);
 
-		final T newEntityCreated = this.documentAccess.create(entity);
+		final T newEntityCreated = this.entityAccess.create(entity);
 
 		return newEntityCreated;
 	}
@@ -47,7 +47,7 @@ public abstract class BaseEntityService<T extends Persistable> implements Entity
 	 */
 	@Override
 	public T getById(String id) throws ServiceException {
-		return this.documentAccess.getById(id);
+		return this.entityAccess.getById(id);
 	}
 
 	/*
@@ -57,13 +57,13 @@ public abstract class BaseEntityService<T extends Persistable> implements Entity
 	 */
 	@Override
 	public T update(T entity) throws ServiceException {
-		final T existingEntity = this.documentAccess.getById(entity.getId());
+		final T existingEntity = this.entityAccess.getById(entity.getId());
 		if (Objects.isNull(existingEntity)) {
 			throw new EntityNotFoundException("Cannot Update. Entity not found for id " + entity.getId());
 		}
 		entity.setModifiedDate(new Date());
 		entity.setCreatedDate(existingEntity.getCreatedDate());
-		T updated = this.documentAccess.update(entity);
+		T updated = this.entityAccess.update(entity);
 		return updated;
 	}
 
@@ -74,11 +74,10 @@ public abstract class BaseEntityService<T extends Persistable> implements Entity
 	 */
 	@Override
 	public void delete(String id) throws ServiceException {
-		final T existingEntity = this.documentAccess.getById(id);
+		final T existingEntity = this.entityAccess.getById(id);
 		if (Objects.isNull(existingEntity)) {
 			throw new EntityNotFoundException("Cannot Delete. Entity not found for id " + id);
 		}
-		this.documentAccess.delete(existingEntity);
+		this.entityAccess.delete(existingEntity);
 	}
-
 }

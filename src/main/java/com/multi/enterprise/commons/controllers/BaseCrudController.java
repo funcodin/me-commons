@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.multi.enterprise.commons.service.EntityService;
 import com.multi.enterprise.types.Persistable;
 import com.multi.enterprise.types.exception.ServiceException;
+import com.multi.enterprise.types.service.RecordService;
 
 /**
  * @author Robot
@@ -20,7 +20,7 @@ import com.multi.enterprise.types.exception.ServiceException;
 public abstract class BaseCrudController<T extends Persistable> implements CrudController<T> {
 
 	@Autowired
-	protected EntityService<T> entityService;
+	protected RecordService<T> entityService;
 
 	/*
 	 * (non-Javadoc)
